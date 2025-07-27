@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Imran Hossen - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Galaxy Background - Traditional */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 30%, #0f0f23 70%, #000000 100%),
+                radial-gradient(circle at 20% 30%, rgba(100, 149, 237, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        .galaxy-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(100, 149, 237, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(147, 112, 219, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+            animation: galaxyMove 30s infinite linear;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes galaxyMove {
+            0% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(120deg) scale(1.1); }
+            66% { transform: rotate(240deg) scale(0.9); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Title Font Override */
+        h1, h2, h3, h4, h5, h6, .hero-title, .work-title, .project-title {
+            font-family: 'EB Garamond', serif !important;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-family: 'EB Garamond', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #00d4ff;
+        }
+
+        /* Dual Gear System - Closer Positioning */
+        .gear-container {
+            position: fixed;
+            top: 100px;
+            right: 50px;
+            z-index: 100;
+        }
+
+        .gear-system {
+            position: relative;
+            width: 90px;
+            height: 70px;
+        }
+
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, #00d4ff 30%, #0099cc 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gear::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg, #00d4ff 10deg,
+                transparent 20deg, #00d4ff 30deg,
+                transparent 40deg, #00d4ff 50deg,
+                transparent 60deg, #00d4ff 70deg,
+                transparent 80deg, #00d4ff 90deg,
+                transparent 100deg, #00d4ff 110deg,
+                transparent 120deg, #00d4ff 130deg,
+                transparent 140deg, #00d4ff 150deg,
+                transparent 160deg, #00d4ff 170deg,
+                transparent 180deg, #00d4ff 190deg,
+                transparent 200deg, #00d4ff 210deg,
+                transparent 220deg, #00d4ff 230deg,
+                transparent 240deg, #00d4ff 250deg,
+                transparent 260deg, #00d4ff 270deg,
+                transparent 280deg, #00d4ff 290deg,
+                transparent 300deg, #00d4ff 310deg,
+                transparent 320deg, #00d4ff 330deg,
+                transparent 340deg, #00d4ff 350deg,
+                transparent 360deg
+            );
+        }
+
+        .gear::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            background: #000;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .gear-1 {
+            width: 50px;
+            height: 50px;
+            top: 0;
+            left: 0;
+            animation: rotateClockwise 4s linear infinite;
+        }
+
+        .gear-2 {
+            width: 40px;
+            height: 40px;
+            top: 15px;
+            left: 25px;
+            animation: rotateCounterClockwise 3.2s linear infinite;
+        }
+
+        @keyframes rotateClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateCounterClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1300px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section h2 {
+            color: #00d4ff;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'EB Garamond', serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            width: 250px;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Skills List */
+        .skills-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .skills-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skills-list li::before {
+            content: '⚙️';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Work Experience */
+        .work-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .work-title {
+            font-size: 22px;
+            color: #00d4ff;
+            margin-bottom: 5px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .work-company {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .work-duration {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Enhanced Project Grid - 3x3 Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .project-item {
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-title {
+            color: #00d4ff;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .see-more-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .see-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 200px;
+            background: rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 15px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dot.active {
+            background: #00d4ff;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            color: #00d4ff;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .send-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 50px 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-quote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #ccc;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .gear-container {
+                right: 20px;
+                top: 80px;
+            }
+            
+            .gear-system {
+                width: 70px;
+                height: 55px;
+            }
+            
+            .gear-1 {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .gear-2 {
+                width: 28px;
+                height: 28px;
+                top: 12px;
+                left: 18px;
+            }
+            
+            .section {
+                margin: 30px 15px;
+                padding: 30px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Galaxy Background -->
+    <div class="galaxy-bg"></div>
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Md Imran Hossen</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a onclick="scrollToSection('about')">About Me</a></li>
+                    <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                    <li><a onclick="scrollToSection('education')">Education</a></li>
+                    <li><a onclick="scrollToSection('credentials')">Credentials</a></li>
+                    <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                    <li><a onclick="scrollToSection('certificates')">Certificates</a></li>
+                    <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dual Gear System -->
+    <div class="gear-container">
+        <div class="gear-system">
+            <div class="gear gear-1"></div>
+            <div class="gear gear-2"></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Hero/About Section -->
+        <section id="about" class="section">
+            <div class="hero-section">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='300' viewBox='0 0 250 300'%3E%3Crect width='250' height='300' fill='%2300d4ff' opacity='0.3'/%3E%3Ctext x='125' y='150' text-anchor='middle' fill='white' font-size='16'%3EYour Photo Here%3C/text%3E%3C/svg%3E" alt="Md Imran Hossen" class="hero-image">
+                <div class="hero-content">
+                    <div class="hero-subtitle">Your Reliable Partner in Innovative Design...</div>
+                    <h1 class="hero-title">Md Imran Hossen</h1>
+                    <div class="hero-subtitle">R&I Engineer, Design & Advance Research Section, Compressor Technology | Founder of simXcad Lab</div>
+                </div>
+            </div>
+            
+            <h2>About Me</h2>
+            <p style="line-height: 1.8; margin-bottom: 20px;">
+                I'm a Mechanical Engineer with hands-on experience in product design, simulation, and innovation—currently working in the Research & Innovation (Compressor) department at Walton Hi-Tech Industries PLC. I specialize in advanced CAD modeling, GD&T-based drafting, structural and CFD analysis, and dynamic simulation.
+            </p>
+            <p style="line-height: 1.8; margin-bottom: 20px;">
+                With a strong foundation in SolidWorks, CATIA, Siemens NX, STAR-CCM+ and ANSYS, I bring ideas to life through design validation, additive manufacturing, and performance benchmarking. I actively contribute to cross-functional collaboration and support problem-solving initiatives in fast-paced R&D environments.
+            </p>
+            
+            <h3 style="color: #00d4ff; margin: 20px 0 15px 0; font-family: 'EB Garamond', serif;">Skills & Core Components:</h3>
+            <ul class="skills-list">
+                <li>3D modeling and 2D drafting with precise implementation of GD&T standards using SOLIDWORKS</li>
+                <li>Structural and modal analysis using Ansys Workbench</li>
+                <li>CFD analysis for gas flow/force using Ansys Fluent</li>
+                <li>Lubrication Flow Simulations (CFD Analysis) using "Simcenter STAR-CCM+"</li>
+                <li>Hands-on experience in rapid prototyping and design validation through 3D printing</li>
+            </ul>
+            
+            <p style="margin-top: 20px;"><strong>Interests:</strong> CAD and Digital Manufacturing | Mechanical System Optimization | Machine Design | Additive Manufacturing | CFD</p>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience" class="section">
+            <h2>Work Experience</h2>
+            <div class="work-item">
+                <div class="work-title">R&I Engineer</div>
+                <div class="work-company">Walton Hi-Tech Industries PLC, Dhaka, Bangladesh</div>
+                <div style="color: #ccc; margin: 5px 0;">Design & Advanced Research Section, Compressor Product</div>
+                <div class="work-duration">Oct 2024 - Present</div>
+            </div>
+            <div class="work-item">
+                <div class="work-title">Mechanical Engineer</div>
+                <div class="work-company">Rooppur Nuclear Power Plant Project (RNPP), Ishwardi, Pabna</div>
+                <div style="color: #ccc; margin: 5px 0;">Material Inspection & Documentation Section</div>
+                <div class="work-duration">Jun 2024 - Sep 2024</div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="work-item">
+                <div class="work-title">B.Sc. in Mechanical Engineering</div>
+                <div class="work-company">Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh</div>
+                <div class="work-duration">2019 - 2024</div>
+            </div>
+        </section>
+
+        <!-- Professional Credentials -->
+        <section id="credentials" class="section">
+            <h2>Professional Credentials</h2>
+            <ul class="skills-list" style="font-size: 14px;">
+                <li>Certified SOLIDWORKS Professional -Mechanical Design (CSWP - Mechanical Design) - April 2025</li>
+                <li>Certified SOLIDWORKS Associate-Mechanical Design (CSWA - Mechanical Design) - Oct 2023</li>
+                <li>Certified SOLIDWORKS Associate-Simulation (CSWA–S) - Dec 2023</li>
+                <li>Certified SOLIDWORKS Associate - Additive Manufacturing (CSWA-AM) - Nov 2023</li>
+                <li>Certified SOLIDWORKS Associate - Sustainability (CSWA-SD) - Dec 2023</li>
+                <li>Practical Introduction to FDM 3D Printing Course - Nov 2023</li>
+                <li>SOLIDWORKS Professional- Advanced Level Drawing Tools Training - Feb 2022</li>
+                <li>Autodesk Certified Credential in CAD/CAM for Manufacturing - Aug 2020</li>
+                <li>Autodesk CAD/CAM/CAE for Mechanical Engineering - July 2020</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <h2>View my CAD & CAE Projects</h2>
+            <div class="project-grid">
+                <!-- Row 1 -->
+                <div class="project-item">
+                    <div class="project-title">Advanced Compressor Design</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project1-track">
+                                <div class="slide">Compressor Assembly - 3D Model</div>
+                                <div class="slide">Technical Drawings - GD&T</div>
+                                <div class="slide">Performance Analysis</div>
+                                <div class="slide">Prototype Testing</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project1-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">CFD Flow Analysis</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project2-track">
+                                <div class="slide">Fluid Flow Simulation</div>
+                                <div class="slide">Pressure Distribution</div>
+                                <div class="slide">Velocity Vectors</div>
+                                <div class="slide">Heat Transfer Analysis</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project2-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Structural Analysis</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project3-track">
+                                <div class="slide">Stress Analysis - FEA</div>
+                                <div class="slide">Modal Analysis</div>
+                                <div class="slide">Fatigue Testing</div>
+                                <div class="slide">Design Optimization</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project3-nav"></div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="project-item">
+                    <div class="project-title">3D Printing Prototypes</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project4-track">
+                                <div class="slide">Rapid Prototyping</div>
+                                <div class="slide">Material Testing</div>
+                                <div class="slide">Surface Finishing</div>
+                                <div class="slide">Quality Validation</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project4-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Machine Design Project</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project5-track">
+                                <div class="slide">Conceptual Design</div>
+                                <div class="slide">Detailed Modeling</div>
+                                <div class="slide">Assembly Simulation</div>
+                                <div class="slide">Manufacturing Analysis</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project5-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Lubrication System Design</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project6-track">
+                                <div class="slide">System Layout</div>
+                                <div class="slide">Flow Simulation</div>
+                                <div class="slide">Pump Selection</div>
+                                <div class="slide">Performance Testing</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project6-nav"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="project-item">
+                    <div class="project-title">Thermal Management System</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project7-track">
+                                <div class="slide">Heat Exchanger Design</div>
+                                <div class="slide">Thermal Analysis</div>
+                                <div class="slide">Cooling Optimization</div>
+                                <div class="slide">Efficiency Testing</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project7-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Automation & Control</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project8-track">
+                                <div class="slide">Control System Design</div>
+                                <div class="slide">Sensor Integration</div>
+                                <div class="slide">PLC Programming</div>
+                                <div class="slide">System Testing</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project8-nav"></div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Product Development</div>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slider-track" id="project9-track">
+                                <div class="slide">Market Research</div>
+                                <div class="slide">Concept Generation</div>
+                                <div class="slide">Design Validation</div>
+                                <div class="slide">Production Planning</div>
+                            </div>
+                        </div>
+                        <div class="slider-nav" id="project9-nav"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="see-more-btn" onclick="showMoreProjects()">See More</button>
+        </section>
+
+        <!-- Certificates -->
+        <section id="certificates" class="section">
+            <h2>Verify my Credentials</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slider-track" id="cert-track">
+                        <div class="slide">Certificate 1: CSWP - Mechanical Design</div>
+                        <div class="slide">Certificate 2: CSWA - Mechanical Design</div>
+                        <div class="slide">Certificate 3: CSWA - Simulation</div>
+                        <div class="slide">Certificate 4: CSWA - Additive Manufacturing</div>
+                        <div class="slide">Certificate 5: CSWA - Sustainability</div>
+                        <div class="slide">Certificate 6: 3D Printing Course</div>
+                    </div>
+                </div>
+                <div class="slider-nav" id="cert-nav"></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <h2>Let's Build Something Great Together</h2>
+            <p style="text-align: center; line-height: 1.8; margin-bottom: 30px;">
+                Thank you for exploring my professional portfolio. With hands-on experience in CAD design, CAE simulation, and engineering innovation, I'm committed to delivering high-quality, efficient, and reliable solutions tailored to your needs. If you're looking for a dedicated professional who can bring your ideas to life with precision and creativity, I'm ready to help. Let's connect—and turn your concept into reality.
+            </p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="query">Query</label>
+                    <textarea id="query" name="query" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-quote">
+            "From imagination to implementation — design is where innovation begins."
+        </div>
+        <div class="footer-copyright">
+            ©simXcadLab. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize sliders
+        function initSlider(trackId, navId, slideCount) {
+            const track = document.getElementById(trackId);
+            const nav = document.getElementById(navId);
+            let currentSlide = 0;
+
+            // Create navigation dots
+            for (let i = 0; i < slideCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'slider-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                nav.appendChild(dot);
+            }
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                track.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                // Update dots
+                nav.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === slideIndex);
+                });
+            }
+
+            // Auto slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                goToSlide(currentSlide);
+            }, 4000);
+        }
+
+        // Show more projects function
+        function showMoreProjects() {
+            alert('More projects will be available soon! Stay tuned for updates on additional CAD/CAE projects and case studies.');
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Update gear rotation on scroll
+        let lastScrollTop = 0;
+        let gear1Rotation = 0;
+        let gear2Rotation = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollDelta = scrollTop - lastScrollTop;
+            
+            gear1Rotation += scrollDelta * 0.5;
+            gear2Rotation -= scrollDelta * 0.7; // Counter rotation
+            
+            const gear1 = document.querySelector('.gear-1');
+            const gear2 = document.querySelector('.gear-2');
+            
+            gear1.style.transform = `rotate(${gear1Rotation}deg)`;
+            gear2.style.transform = `rotate(${gear2Rotation}deg)`;
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            
+            // Initialize all sliders
+            initSlider('project1-track', 'project1-nav', 4);
+            initSlider('project2-track', 'project2-nav', 4);
+            initSlider('project3-track', 'project3-nav', 4);
+            initSlider('project4-track', 'project4-nav', 4);
+            initSlider('project5-track', 'project5-nav', 4);
+            initSlider('project6-track', 'project6-nav', 4);
+            initSlider('project7-track', 'project7-nav', 4);
+            initSlider('project8-track', 'project8-nav', 4);
+            initSlider('project9-track', 'project9-nav', 4);
+            initSlider('cert-track', 'cert-nav', 6);
+            
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.style.animation = 'slideUp 0.8s forwards';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
